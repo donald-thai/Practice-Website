@@ -1,0 +1,228 @@
+a {
+    text-decoration: none;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 1em 1.5em;
+}
+
+.logo {
+    font-size: 1.5rem;
+    color: black;
+}
+
+span {
+    color: red;
+}
+
+.logo-box {
+    border-color: black;
+    border-style: solid;
+    padding: .25em; 
+    border-radius: .8em;
+    animation: logoLoad 1s;
+}
+
+.nav-pages {
+    position: fixed;
+    right: 0; 
+    top: 0;
+    width: 40%;
+    background-color: white;
+    height: 100vh;
+    z-index: 999;
+    transform: translateX(100%);
+    transition: transform .5s ease-in-out;
+
+    .close {
+        width: 2.5em;
+        position: absolute;
+        right: .5em;
+        top: .5em;
+        cursor: pointer;
+    }
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+        margin-top: 8em;
+
+        a {
+            display: block;
+            padding: 1.5em 1em;
+            text-align: center;
+            font-size: 1.2rem;
+            color: black;
+
+            &:hover {
+                background-color: rgb(176, 176, 176);
+            }
+        }
+
+        
+    }
+}
+
+.open-nav {
+    transform: translateX(0);
+}
+
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 3em;
+
+    .menu {
+        width: 2.5em;
+        cursor: pointer; // Changes cursor when you put it over the element
+
+        path {
+            fill: black;
+        }
+    }
+}
+
+.about-box {
+    h1 {
+        text-align: center;
+        text-transform: capitalize;
+        margin-bottom: 1.2em;
+        font-size: 3rem;
+    }
+
+    img {
+        display: block;
+        margin: auto;
+        width: 95%;
+        height: 35em;
+        border-radius: .75em;
+    }
+
+    p {
+        text-align: center;
+        margin: 2.5em 0;
+        font-size: 1.3rem;
+        line-height: 2rem;
+    }
+}
+
+@media only screen and (min-width: 680px) {
+    body {
+        margin: 1em 4em;
+    }
+
+    .logo {
+        padding: 0 .2em;
+    }
+}
+
+@media only screen and (min-width: 920px) {
+    .menu {
+        display: none;
+    }
+
+    .nav-pages {
+        transform: translateX(0%);
+        position: unset;
+        display: block;
+        height: auto;
+        width: auto;
+        background: none;
+
+        ul {
+            display: flex;
+            // justify-content: space-between;
+            margin: 0;
+
+            a {
+                padding: .6em 0em;
+                padding-left: 2em;
+                text-align: end;
+
+                &:hover {
+                    background: none;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+    .close {
+        display: none;
+        justify-content: center;
+    }
+
+    .about-box {
+
+        h1 {
+            margin-bottom: 1em;
+        }
+
+        .content {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            margin-bottom: 10em;
+            align-items: center;
+
+            img {
+                width: 45%;
+                height: 40em;
+                margin-left: 0;
+                animation: introFall 1.5s ease-in-out;
+            }
+    
+            p {
+                margin-top: 0;
+                margin-bottom: 0;
+                width: 45%;
+                text-align: left;
+                line-height: 2.8rem;
+            }
+    
+        }
+    
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .wrapper {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .about-box {
+        .content {
+            img {
+                width: 50%;
+                height: 45em;
+            }
+
+            p {
+                width: 40%;
+            }
+        }
+    }
+}
+
+
+@keyframes logoLoad {
+    from {
+        clip-path: polygon(4% 27%, 96% 27%, 96% 83%, 4% 83%);
+    }
+
+    to {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    }
+}
+
+@keyframes introFall {
+    from {
+        transform: translateY(-150%);
+    } 
+
+    to {
+        transform: translateY(0%);
+    }
+}
